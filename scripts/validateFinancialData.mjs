@@ -6,6 +6,10 @@ const scenarios = ["worst", "base", "best"];
 const expected = {
   coLiving: {
     units: 11,
+    pricing: [
+      { label: "Master", units: 10, worst: 3200, base: 3500, best: 3700 },
+      { label: "Studio", units: 1, worst: 3958, base: 4590, best: 5223 },
+    ],
     rev100: { worst: 431496, base: 475085, best: 506676 },
     revenue: {
       worst: { 50: 215748, 60: 258898, 70: 302047, 80: 345197, 90: 388346 },
@@ -30,6 +34,10 @@ const expected = {
   },
   executive: {
     units: 6,
+    pricing: [
+      { label: "Studio", units: 1, worst: 3500, base: 4000, best: 8500 },
+      { label: "2BR", units: 5, worst: 4050, base: 4709, best: 10622 },
+    ],
     rev100: { worst: 284976, base: 330508, best: 743256 },
     revenue: {
       worst: { 50: 142488, 60: 170986, 70: 199483, 80: 227981, 90: 256478 },
@@ -79,6 +87,26 @@ try {
 
     assertClose(mismatches, `${modelKey}.unitCount`, model.unitCount, expectedModel.units);
     assertClose(mismatches, `${modelKey}.operatorFeeRate`, model.operatorFeeRate, 0.2);
+
+    expectedModel.pricing.forEach((expectedPrice, index) => {
+      const actualPrice = model.pricing[index];
+      const actualLabel = actualPrice.label.en;
+
+      if (actualLabel !== expectedPrice.label) {
+        mismatches.push(`${modelKey}.pricing.${index}.label: ${actualLabel} !== ${expectedPrice.label}`);
+      }
+
+      assertClose(mismatches, `${modelKey}.pricing.${index}.units`, actualPrice.units, expectedPrice.units);
+
+      for (const scenario of scenarios) {
+        assertClose(
+          mismatches,
+          `${modelKey}.pricing.${index}.${scenario}`,
+          actualPrice[scenario],
+          expectedPrice[scenario],
+        );
+      }
+    });
 
     for (const scenario of scenarios) {
       const actualScenario = model.scenarios[scenario];

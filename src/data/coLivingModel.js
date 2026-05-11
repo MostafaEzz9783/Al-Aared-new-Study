@@ -63,9 +63,9 @@ const coLivingVariant = {
         en: "Master",
       },
       units: 10,
-      worst: 3270,
-      base: 3599,
-      best: 3838,
+      worst: 3200,
+      base: 3500,
+      best: 3700,
     },
     {
       label: {
@@ -73,9 +73,9 @@ const coLivingVariant = {
         en: "Studio",
       },
       units: 1,
-      worst: 2900,
-      base: 3258,
-      best: 3556,
+      worst: 3958,
+      base: 4590,
+      best: 5223,
     },
   ],
   scenarios: buildModelScenarios({

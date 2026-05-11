@@ -52,122 +52,6 @@ function formatPercent(value) {
   return formatNumber(value);
 }
 
-function getModelVariant(modelKey) {
-  const model = MODEL_DATA[modelKey];
-  return model.strategies ? model.strategies[model.defaultStrategy] : model;
-}
-
-function getRevenueAt100Summary(variant, t) {
-  return SCENARIO_OPTIONS.map((option) => `${t.financial.scenarios[option.key]}: SAR ${formatSAR(variant.scenarios[option.key].revenueAt100)}`).join(" | ");
-}
-
-function getNetRevenueSummary(variant, t) {
-  return SCENARIO_OPTIONS.map((option) => {
-    const occupancyValues = [70, 80, 90]
-      .map((occupancyRate) => `${occupancyRate}% SAR ${formatSAR(variant.scenarios[option.key].occupancy[occupancyRate].netRevenue)}`)
-      .join(", ");
-
-    return `${t.financial.scenarios[option.key]}: ${occupancyValues}`;
-  }).join(" | ");
-}
-
-function getBaseMonthlySummary(variant) {
-  return [80, 90]
-    .map((occupancyRate) => `${occupancyRate}%: SAR ${formatSAR(variant.scenarios.base.occupancy[occupancyRate].monthlyPerUnit)}`)
-    .join(" | ");
-}
-
-function ModelComparison({ t }) {
-  const comparisonRows = MODEL_OPTIONS.map((option) => {
-    const variant = getModelVariant(option.key);
-
-    return {
-      key: option.key,
-      label: t.financial[option.labelKey],
-      units: variant.unitCount,
-      revenueAt100: getRevenueAt100Summary(variant, t),
-      netRevenue: getNetRevenueSummary(variant, t),
-      monthlyPerUnit: getBaseMonthlySummary(variant),
-    };
-  });
-
-  return (
-    <div className="rounded-2xl p-6 border mb-8" style={{ backgroundColor: "#171728", borderColor: "#2e2e3e" }}>
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-5">
-        <div>
-          <h3 className="font-black text-lg mb-2" style={{ color: "#f0f0fa" }}>
-            {t.financial.comparisonTitle}
-          </h3>
-          <p className="text-sm leading-relaxed max-w-3xl" style={{ color: "#a1a1bd" }}>
-            {t.financial.comparisonSubtitle}
-          </p>
-        </div>
-        <div className="rounded-xl px-4 py-3 border text-sm font-bold" style={{ backgroundColor: "#1e1e2e", borderColor: "#2e2e3e", color: "#f97316" }}>
-          {t.financial.operatorFee}: 20%
-        </div>
-      </div>
-
-      <div className="overflow-x-auto rounded-xl border" style={{ borderColor: "#2e2e3e" }}>
-        <table className="min-w-full text-sm">
-          <thead style={{ backgroundColor: "#1e1e2e" }}>
-            <tr>
-              <th className="px-4 py-3 text-left font-semibold" style={{ color: "#f0f0fa" }}>
-                {t.financial.model}
-              </th>
-              <th className="px-4 py-3 text-left font-semibold" style={{ color: "#f0f0fa" }}>
-                {t.financial.totalUnits}
-              </th>
-              <th className="px-4 py-3 text-left font-semibold" style={{ color: "#f0f0fa" }}>
-                {t.financial.revenue100ByScenario}
-              </th>
-              <th className="px-4 py-3 text-left font-semibold" style={{ color: "#f0f0fa" }}>
-                {t.financial.netRevenueSelectedOccupancy}
-              </th>
-              <th className="px-4 py-3 text-left font-semibold" style={{ color: "#f0f0fa" }}>
-                {t.financial.baseMonthlyPerUnit}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {comparisonRows.map((row) => (
-              <tr key={row.key} className="border-t" style={{ borderColor: "#2e2e3e" }}>
-                <td className="px-4 py-3 font-bold" style={{ color: row.key === "coLiving" ? "#60a5fa" : "#34d399" }}>
-                  {row.label}
-                </td>
-                <td className="px-4 py-3 font-black" style={{ color: "#f0f0fa" }}>
-                  {formatNumber(row.units)}
-                </td>
-                <td className="px-4 py-3" style={{ color: "#c0c0d8", verticalAlign: "top", minWidth: 220 }}>
-                  {row.revenueAt100}
-                </td>
-                <td className="px-4 py-3" style={{ color: "#c0c0d8", verticalAlign: "top", minWidth: 320 }}>
-                  {row.netRevenue}
-                </td>
-                <td className="px-4 py-3" style={{ color: "#c0c0d8", verticalAlign: "top", minWidth: 180 }}>
-                  {row.monthlyPerUnit}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-        <div className="rounded-xl p-4 border" style={{ backgroundColor: "#1e1e2e", borderColor: "#2e2e3e" }}>
-          <p className="text-sm font-semibold" style={{ color: "#60a5fa" }}>
-            {t.financial.comparisonInsightCoLiving}
-          </p>
-        </div>
-        <div className="rounded-xl p-4 border" style={{ backgroundColor: "#1e1e2e", borderColor: "#2e2e3e" }}>
-          <p className="text-sm font-semibold" style={{ color: "#34d399" }}>
-            {t.financial.comparisonInsightExecutive}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
   const initialModelKey = MODEL_OPTIONS[0]?.key ?? "executive";
   const [model, setModel] = useState(initialModelKey);
@@ -460,8 +344,6 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
             {t.financial.executiveSummary}
           </p>
         </div>
-
-        <ModelComparison t={t} />
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-6 items-start sm:items-center justify-center mb-8">
           <div className="flex flex-col items-center gap-2">

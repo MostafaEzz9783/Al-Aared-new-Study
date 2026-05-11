@@ -8,7 +8,7 @@ export const projectData = {
   coLivingUnits: 11,
   operatorFeeRate: 0.2,
   location: {
-    ar: "العريض",
+    ar: "العارض",
     en: "Al Aared",
   },
   locationSubtext: {
@@ -25,7 +25,7 @@ export const projectData = {
   },
   overviewDescription: {
     ar:
-      "تقوم الدراسة على تحويل فيلا قائمة في العريض إلى وحدات قابلة للتأجير. تقارن Mathwa بين نموذج السكن المشترك ونموذج الإسكان التنفيذي وفق تقسيم الوحدات، افتراضات الإيجار، حساسية الإشغال، وصافي الإيراد بعد رسوم المشغل.",
+      "تقوم الدراسة على تحويل فيلا قائمة في العارض إلى وحدات قابلة للتأجير. تقارن Mathwa بين نموذج السكن المشترك ونموذج الإسكان التنفيذي وفق تقسيم الوحدات، افتراضات الإيجار، حساسية الإشغال، وصافي الإيراد بعد رسوم المشغل.",
     en:
       "This study is based on converting an existing villa in Al Aared into multiple rentable units. Mathwa compares a Co-Living model and an Executive Housing model based on unit segmentation, rent assumptions, occupancy scenarios, and net revenue after operator fees.",
   },

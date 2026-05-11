@@ -154,45 +154,7 @@ export default function CoLivingStrategyOverview({ strategyKey, setStrategyKey, 
         </div>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-4">
-        <div className="rounded-2xl border p-5" style={{ backgroundColor: "#121225", borderColor: "#2e2e3e" }}>
-          <h4 className="text-sm font-black mb-2" style={{ color: "#f8fafc" }}>
-            {t.financial.pricingAssumptionsTitle}
-          </h4>
-          <p className="text-sm mb-4" style={{ color: "#a6a6c2" }}>
-            {t.financial.pricingAssumptionsSubtitle}
-          </p>
-
-          <div className="flex flex-wrap gap-3 mb-4">
-            {[
-              { key: "best", color: "#34d399" },
-              { key: "base", color: "#60a5fa" },
-              { key: "worst", color: "#f97316" },
-            ].map((item) => (
-              <div key={item.key} className="rounded-xl border px-4 py-3 min-w-[120px]" style={{ backgroundColor: "#1a1a2e", borderColor: "#2e2e3e" }}>
-                <p className="text-xs font-semibold mb-1" style={{ color: "#8b8ba7" }}>
-                  {t.financial.scenarios[item.key]}
-                </p>
-                <p className="text-lg font-black" style={{ color: item.color }}>
-                  SAR {formatNumber(selectedStrategy.pricing[0][item.key])}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {selectedStrategy.pricingFactors[language].map((factor) => (
-              <span
-                key={factor}
-                className="inline-flex rounded-full px-3 py-1 text-xs font-medium"
-                style={{ backgroundColor: "#1e293b", color: "#cbd5e1" }}
-              >
-                {factor}
-              </span>
-            ))}
-          </div>
-        </div>
-
+      <div>
         <div className="rounded-2xl border p-5" style={{ backgroundColor: "#121225", borderColor: "#2e2e3e" }}>
           <h4 className="text-sm font-black mb-2" style={{ color: "#f8fafc" }}>
             {t.financial.inventoryConceptTitle}

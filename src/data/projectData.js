@@ -1,4 +1,5 @@
-export const MARKET_VALIDATION_URL = "/files/Financial%20Study-%20Al%20Aared%20Villa%20Conversion.xlsx";
+export const MARKET_VALIDATION_URL =
+  "https://docs.google.com/spreadsheets/d/1I0EJyab-oYUgogk9jY1hBhgDHFOHA2_HoCZXTv_2Yvw/edit?gid=421968515#gid=421968515";
 
 export const projectData = {
   mapUrl: "https://maps.app.goo.gl/LW8zg1pMaMkTQQvt5?g_st=ic",

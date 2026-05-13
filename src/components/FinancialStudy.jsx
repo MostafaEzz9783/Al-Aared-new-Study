@@ -358,7 +358,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                   key={option.key}
                   type="button"
                   onClick={() => setModel(option.key)}
-                  className="px-5 py-2 rounded-lg text-sm font-bold transition-all duration-200"
+                  className="min-w-0 max-w-[180px] px-3 py-2 sm:px-5 rounded-lg text-[11px] sm:text-sm font-bold leading-tight text-center transition-all duration-200"
                   style={{
                     backgroundColor: model === option.key ? "#60a5fa" : "transparent",
                     color: model === option.key ? "#0f0f1a" : "#8b8ba7",

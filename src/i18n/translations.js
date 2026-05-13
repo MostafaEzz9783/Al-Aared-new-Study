@@ -27,9 +27,6 @@ export const translations = {
       inventoryType: "نوع الوحدة",
       inventoryCount: "العدد",
       inventoryUse: "الاستخدام",
-      marketBenchmarksTitle: "مؤشرات الإيراد",
-      marketBenchmarksDescription: "تعرض هذه المؤشرات الإيراد السنوي عند إشغال 100% وتبرز الفروقات الرئيسية بين النموذجين.",
-      featuresTitle: "نقاط الدراسة الرئيسية",
     },
     financial: {
       marketValidation: "بيانات السوق",
@@ -48,8 +45,8 @@ export const translations = {
       operatorFee: "رسوم المشغل",
       fixed: "ثابتة",
       fromAnnualRevenue: "من الإيراد السنوي",
-      executiveHousing: "Executive Housing",
-      coLiving: "Co-Living النسائي",
+      executiveHousing: "السكن التنفيذي",
+      coLiving: "السكن المشترك (نسائي فقط)",
       scenarios: {
         worst: "Worst Case",
         base: "Base Case",
@@ -127,9 +124,6 @@ export const translations = {
       inventoryType: "Unit Type",
       inventoryCount: "Count",
       inventoryUse: "Use Case",
-      marketBenchmarksTitle: "Revenue Benchmarks",
-      marketBenchmarksDescription: "These benchmarks show annual revenue at 100% occupancy and highlight the key differences between the two operating models.",
-      featuresTitle: "Key Study Points",
     },
     financial: {
       marketValidation: "Market Validation",
@@ -149,7 +143,7 @@ export const translations = {
       fixed: "Fixed",
       fromAnnualRevenue: "from annual revenue",
       executiveHousing: "Executive Housing",
-      coLiving: "Women's Co-Living",
+      coLiving: "Co-Living (Female Only)",
       scenarios: {
         worst: "Worst Case",
         base: "Base Case",

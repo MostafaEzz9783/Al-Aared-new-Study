@@ -4,7 +4,10 @@ export const MARKET_VALIDATION_URL =
 export const projectData = {
   mapUrl: "https://maps.app.goo.gl/kyVfT9V5i9AqjqFZ6?g_st=ic",
   executiveUnits: 6,
-  executiveUnitType: "Executive Housing Units",
+  executiveUnitType: {
+    ar: "وحدات السكن التنفيذي",
+    en: "Executive Housing Units",
+  },
   coLivingUnits: 11,
   operatorFeeRate: 0.2,
   location: {
@@ -16,8 +19,8 @@ export const projectData = {
     en: "Al Aared, Riyadh, Saudi Arabia",
   },
   modelValue: {
-    ar: "Co-Living / Executive Housing",
-    en: "Co-Living / Executive Housing",
+    ar: "السكن المشترك (نسائي فقط) / السكن التنفيذي",
+    en: "Co-Living (Female Only) / Executive Housing",
   },
   modelSubtext: {
     ar: "نموذجان تشغيليان لتحويل فيلا قائمة",
@@ -28,24 +31,6 @@ export const projectData = {
       "تقع دورا العارض في نطاق العارض شمال الرياض، ويتم تقييم تحويل الفيلا القائمة إلى وحدات قابلة للتأجير. يعتمد السياق التشغيلي على قرب العقار من جامعة اليمامة بحوالي 7 كم، وقربه النسبي من مدينة الأمير سلطان للخدمات الإنسانية والمدينة العسكرية ومناطق العمل، مع اختبار ملاءمة نموذج السكن المشترك ونموذج السكن التنفيذي.",
     en:
       "Dora Al Aared is positioned in Al Aared, north Riyadh, where the existing villa is being evaluated for conversion into rentable units. The operating context considers proximity to Al Yamamah University at approximately 7 km, relative access to Prince Sultan Humanitarian City, the military city, and employment areas, while testing Co-Living and Executive Housing suitability.",
-  },
-  features: {
-    ar: [
-      "الأصل العقاري فيلا قائمة في دورا العارض يتم تقييم تحويلها إلى وحدات قابلة للتأجير.",
-      "الموقع يبعد عن جامعة اليمامة بحوالي 7 كم، ما يدعم اختبار استهداف الطلاب والموظفين الشباب ضمن نموذج السكن المشترك.",
-      "نموذج السكن المشترك: 10 وحدات ماستر + 1 استوديو، بإجمالي 11 وحدة وتنويع أعلى في شرائح التأجير.",
-      "نموذج السكن التنفيذي: 5 وحدات غرفتين + 1 استوديو، بإجمالي 6 وحدات مع تركيز على الإقامات طويلة المدى.",
-      "السكن التنفيذي يستفيد من قرب المشروع من مدينة الأمير سلطان للخدمات الإنسانية والمدينة العسكرية ومناطق العمل.",
-      "رسوم المشغل ثابتة عند 20% من الإيراد السنوي، ونسبة الإشغال المتوقعة في العرض الأساسي 60%.",
-    ],
-    en: [
-      "The asset is an existing villa at Dora Al Aared being evaluated for conversion into rentable units.",
-      "The location is approximately 7 km from Al Yamamah University, supporting a test of student and young-professional demand under Co-Living.",
-      "Co-Living model: 10 master units + 1 studio, for a total of 11 units and broader rental segmentation.",
-      "Executive Housing model: 5 two-bedroom units + 1 studio, for a total of 6 units with a focus on longer-stay demand.",
-      "Executive Housing benefits from proximity to Prince Sultan Humanitarian City, the military city, and employment areas.",
-      "Operator fee is fixed at 20% of annual revenue, with 60% used as the expected occupancy rate in the default view.",
-    ],
   },
   inventoryHighlights: [
     {
@@ -96,40 +81,29 @@ export const projectData = {
   inventoryTable: [
     {
       type: {
-        ar: "Co-Living - Master",
+        ar: "السكن المشترك - ماستر",
         en: "Co-Living - Master",
       },
       count: 10,
       use: {
-        ar: "وحدات رئيسية ضمن نموذج السكن المشترك",
-        en: "Primary rentable units under the Co-Living model",
+        ar: "وحدات رئيسية ضمن نموذج السكن المشترك النسائي",
+        en: "Primary rentable units under the female-only Co-Living model",
       },
     },
     {
       type: {
-        ar: "Co-Living - Studio",
+        ar: "السكن المشترك - استوديو",
         en: "Co-Living - Studio",
       },
       count: 1,
       use: {
-        ar: "وحدة استوديو ضمن نموذج السكن المشترك",
-        en: "Studio unit under the Co-Living model",
+        ar: "وحدة استوديو ضمن نموذج السكن المشترك النسائي",
+        en: "Studio unit under the female-only Co-Living model",
       },
     },
     {
       type: {
-        ar: "Executive Housing - Studio",
-        en: "Executive Housing - Studio",
-      },
-      count: 1,
-      use: {
-        ar: "وحدة استوديو ضمن نموذج السكن التنفيذي",
-        en: "Studio unit under the Executive Housing model",
-      },
-    },
-    {
-      type: {
-        ar: "Executive Housing - 2BR",
+        ar: "السكن التنفيذي - غرفتان",
         en: "Executive Housing - 2BR",
       },
       count: 5,
@@ -138,39 +112,15 @@ export const projectData = {
         en: "Two-bedroom units under the Executive Housing model",
       },
     },
-  ],
-  marketBenchmarks: [
     {
-      label: {
-        ar: "Co-Living - Worst Case 100%",
-        en: "Co-Living - Worst Case 100%",
+      type: {
+        ar: "السكن التنفيذي - استوديو",
+        en: "Executive Housing - Studio",
       },
-      value: 377496,
-      note: {
-        ar: "الإيراد السنوي عند إشغال 100%",
-        en: "Annual revenue at 100% occupancy",
-      },
-    },
-    {
-      label: {
-        ar: "Co-Living - Base Case 100%",
-        en: "Co-Living - Base Case 100%",
-      },
-      value: 406685,
-      note: {
-        ar: "الإيراد السنوي عند إشغال 100%",
-        en: "Annual revenue at 100% occupancy",
-      },
-    },
-    {
-      label: {
-        ar: "Executive Housing - Best Case 100%",
-        en: "Executive Housing - Best Case 100%",
-      },
-      value: 344400,
-      note: {
-        ar: "الإيراد السنوي عند إشغال 100%",
-        en: "Annual revenue at 100% occupancy",
+      count: 1,
+      use: {
+        ar: "وحدة استوديو ضمن نموذج السكن التنفيذي",
+        en: "Studio unit under the Executive Housing model",
       },
     },
   ],

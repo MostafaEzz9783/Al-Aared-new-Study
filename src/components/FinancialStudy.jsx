@@ -340,7 +340,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
             {t.financial.executiveSummaryTitle}
           </p>
           <h2 className="font-black text-2xl sm:text-3xl mb-3" style={{ color: "#f0f0fa" }}>
-            Financial Study - Dora Al Aared
+            {t.financial.financialStudyTitle}
           </h2>
           <p className="text-sm leading-relaxed max-w-5xl" style={{ color: "#c0c0d8" }}>
             {t.financial.executiveSummary}
@@ -385,35 +385,17 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                       backgroundColor:
                         scenario === option.key
                           ? option.color
-                          : option.key === "best"
-                            ? "rgba(52, 211, 153, 0.1)"
-                            : option.key === RECOMMENDED_SCENARIO_KEY
-                              ? "rgba(251, 191, 36, 0.1)"
-                              : "transparent",
+                          : "transparent",
                       color:
                         scenario === option.key
                           ? "#0f0f1a"
-                          : option.key === "best"
-                            ? "#bbf7d0"
-                            : option.key === RECOMMENDED_SCENARIO_KEY
-                              ? "#fde68a"
-                              : "#8b8ba7",
+                          : option.key === RECOMMENDED_SCENARIO_KEY
+                            ? "#fde68a"
+                            : "#8b8ba7",
                       border:
-                        option.key === "best"
-                          ? `1px solid ${scenario === option.key ? "rgba(134, 239, 172, 0.9)" : "rgba(74, 222, 128, 0.35)"}`
-                          : option.key === RECOMMENDED_SCENARIO_KEY
-                            ? `1px solid ${scenario === option.key ? "rgba(253, 224, 71, 0.9)" : "rgba(251, 191, 36, 0.35)"}`
-                          : "1px solid transparent",
+                        scenario === option.key ? "1px solid rgba(255, 255, 255, 0.2)" : "1px solid transparent",
                       boxShadow:
-                        option.key === "best"
-                          ? scenario === option.key
-                            ? "0 0 0 1px rgba(74, 222, 128, 0.16), 0 10px 24px rgba(34, 197, 94, 0.16)"
-                            : "0 0 0 1px rgba(74, 222, 128, 0.08)"
-                          : option.key === RECOMMENDED_SCENARIO_KEY
-                            ? scenario === option.key
-                              ? "0 0 0 1px rgba(251, 191, 36, 0.16), 0 10px 24px rgba(245, 158, 11, 0.16)"
-                              : "0 0 0 1px rgba(251, 191, 36, 0.08)"
-                          : "none",
+                        scenario === option.key ? "0 10px 24px rgba(15, 23, 42, 0.18)" : "none",
                     }}
                   >
                     <span className="block">{t.financial.scenarios[option.key]}</span>
@@ -426,17 +408,6 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                         }}
                       >
                         {t.financial.expectedScenario}
-                      </span>
-                    )}
-                    {option.key === "best" && (
-                      <span
-                        className="mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold"
-                        style={{
-                          backgroundColor: scenario === option.key ? "rgba(15, 23, 42, 0.16)" : "rgba(34, 197, 94, 0.16)",
-                          color: scenario === option.key ? "#0f172a" : "#86efac",
-                        }}
-                      >
-                        {t.financial.bestUpside}
                       </span>
                     )}
                   </button>

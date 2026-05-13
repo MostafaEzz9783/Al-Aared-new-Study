@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { BedDouble, LayoutGrid, Sparkles, TrendingUp } from "lucide-react";
 
 const strategyCardMotion = {
   whileHover: { scale: 1.01, y: -2 },
@@ -12,8 +11,6 @@ function formatNumber(value) {
     maximumFractionDigits: 0,
   }).format(Math.round(value));
 }
-
-const insightIcons = [Sparkles, LayoutGrid, TrendingUp, BedDouble];
 
 export default function CoLivingStrategyOverview({ strategyKey, setStrategyKey, strategyEntries, selectedStrategy, t }) {
   const language = t.meta.language;
@@ -115,43 +112,6 @@ export default function CoLivingStrategyOverview({ strategyKey, setStrategyKey, 
             </motion.div>
           );
         })}
-      </div>
-
-      <div className="rounded-2xl border p-5 mb-5" style={{ backgroundColor: "#121225", borderColor: "#2e2e3e" }}>
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl">
-            <h4 className="text-sm font-black mb-2" style={{ color: "#f8fafc" }}>
-              {t.financial.managerialInsightTitle}
-            </h4>
-            <p className="text-sm leading-relaxed" style={{ color: "#a6a6c2" }}>
-              {t.financial.managerialInsight}
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-          {strategyEntries.map(([key, strategy]) => (
-            <div key={key} className="rounded-xl border p-4" style={{ backgroundColor: "#17172a", borderColor: key === strategyKey ? "rgba(52, 211, 153, 0.35)" : "#2e2e3e" }}>
-              <p className="text-sm font-black mb-3" style={{ color: "#f0f0fa" }}>
-                {strategy.title[language]}
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {strategy.merits[language].map((item, index) => {
-                  const Icon = insightIcons[index % insightIcons.length];
-
-                  return (
-                    <div key={item} className="flex items-start gap-2 rounded-lg px-3 py-2" style={{ backgroundColor: "#1e1e2e" }}>
-                      <Icon size={14} style={{ color: "#60a5fa", marginTop: 2 }} />
-                      <span className="text-xs leading-relaxed" style={{ color: "#cbd5e1" }}>
-                        {item}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
 
       <div>

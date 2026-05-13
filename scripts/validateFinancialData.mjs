@@ -71,6 +71,7 @@ function assertClose(mismatches, label, actual, expectedValue, tolerance = 0) {
 const server = await createServer({
   server: { middlewareMode: true },
   appType: "custom",
+  optimizeDeps: { noDiscovery: true },
 });
 
 try {
@@ -87,6 +88,7 @@ try {
 
     assertClose(mismatches, `${modelKey}.unitCount`, model.unitCount, expectedModel.units);
     assertClose(mismatches, `${modelKey}.operatorFeeRate`, model.operatorFeeRate, 0.2);
+    assertClose(mismatches, `${modelKey}.expectedOccupancy`, model.expectedOccupancy, 60);
 
     expectedModel.pricing.forEach((expectedPrice, index) => {
       const actualPrice = model.pricing[index];

@@ -6,13 +6,49 @@ export const executiveModel = {
   key: "executive",
   labelKey: "executiveHousing",
   operatorFeeRate: OPERATOR_FEE_RATE,
-  recommendedOccupancy: 80,
+  expectedOccupancy: 60,
   unitCount,
+  title: {
+    ar: "Financial Study - Dora Al Aared Executive Housing Model",
+    en: "Financial Study - Dora Al Aared Executive Housing Model",
+  },
   contextDescription: {
     ar:
       "يعرض نموذج الإسكان التنفيذي تحويل الفيلا الحالية إلى 6 وحدات قابلة للتأجير: استوديو واحد و5 وحدات بغرفتي نوم، مع اختبار الحساسية من 50% إلى 90% إشغال ورسوم مشغل ثابتة 20%.",
     en:
       "The Executive Housing model converts the existing villa into 6 rentable units: 1 studio and 5 two-bedroom units, tested across 50% to 90% occupancy with a fixed 20% operator fee.",
+  },
+  opportunitiesChallenges: {
+    opportunities: {
+      ar: [
+        "قرب المشروع من مدينة الأمير سلطان للخدمات الإنسانية",
+        "قربه من المدينة العسكرية",
+        "قربه من مناطق العمل",
+        "ملاءمته لفئة الموظفين والإقامات طويلة المدى",
+        "إمكانية تحقيق استقرار تشغيلي أعلى",
+      ],
+      en: [
+        "Proximity to Prince Sultan Humanitarian City",
+        "Proximity to the military city",
+        "Access to employment areas",
+        "Suitable for employees and long-stay demand",
+        "Potential to achieve higher operational stability",
+      ],
+    },
+    challenges: {
+      ar: [
+        "المنافسة مع المشاريع التنفيذية الحديثة",
+        "الحاجة إلى الحفاظ على جودة تشغيل مرتفعة",
+        "حساسية العملاء التنفيذيين تجاه مستوى الخدمات",
+        "احتمالية تأثر الطلب بتغيرات السوق وأسعار الإيجار",
+      ],
+      en: [
+        "Competition with newer executive housing projects",
+        "The need to maintain a high operating quality",
+        "Executive customers are sensitive to service standards",
+        "Demand may be affected by market shifts and rental pricing changes",
+      ],
+    },
   },
   pricing: [
     {

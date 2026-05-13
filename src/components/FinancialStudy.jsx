@@ -8,6 +8,7 @@ import { MARKET_VALIDATION_URL } from "@/data/projectData";
 import CoLivingStrategyOverview from "@/components/CoLivingStrategyOverview";
 import FinancialDistribution from "@/components/FinancialDistribution";
 import KPICards from "@/components/KPICards";
+import OpportunitiesChallenges from "@/components/OpportunitiesChallenges";
 import ScenarioContext from "@/components/ScenarioContext";
 
 let hasAnimatedFinancialStudyOnce = false;
@@ -36,6 +37,7 @@ const SCENARIO_OPTIONS = [
 ];
 
 const RECOMMENDED_SCENARIO_KEY = "base";
+const EXPECTED_OCCUPANCY = 60;
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US", {
@@ -57,7 +59,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
   const [model, setModel] = useState(initialModelKey);
   const [coLivingStrategy, setCoLivingStrategy] = useState(coLivingModel.defaultStrategy);
   const [scenario, setScenario] = useState("base");
-  const [occupancy, setOccupancy] = useState(80);
+  const [occupancy, setOccupancy] = useState(EXPECTED_OCCUPANCY);
   const [animateCountersFromZero, setAnimateCountersFromZero] = useState(!hasAnimatedFinancialStudyOnce);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isExportingPdf, setIsExportingPdf] = useState(false);
@@ -66,7 +68,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
     model: initialModelKey,
     strategy: coLivingModel.defaultStrategy,
     scenario: "base",
-    occupancy: 80,
+    occupancy: EXPECTED_OCCUPANCY,
   });
   const sectionRef = useRef(null);
   const exportContentRef = useRef(null);
@@ -249,7 +251,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
       const y = (pageHeight - fittedHeight) / 2;
 
       pdf.addImage(imageData, "JPEG", x, y, fittedWidth, fittedHeight);
-      pdf.save("Al-Aared-Villa-Conversion-Study.pdf");
+      pdf.save("Dora-Al-Aared-Financial-Study.pdf");
     } catch (error) {
       console.error("Failed to export PDF", error);
     } finally {
@@ -263,7 +265,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
   const strategyEntries = isCoLiving ? Object.entries(selectedModel.strategies) : [];
   const selectedScenario = selectedVariant.scenarios[scenario];
   const selectedModelData = selectedScenario.occupancy[occupancy];
-  const recommendedOccupancy = selectedVariant.recommendedOccupancy ?? 80;
+  const expectedOccupancy = selectedVariant.expectedOccupancy ?? EXPECTED_OCCUPANCY;
   const operatorFeeRate = selectedVariant.operatorFeeRate ?? 0;
 
   const kpis = {
@@ -338,7 +340,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
             {t.financial.executiveSummaryTitle}
           </p>
           <h2 className="font-black text-2xl sm:text-3xl mb-3" style={{ color: "#f0f0fa" }}>
-            Financial Study - Al Aared Villa Conversion Study
+            Financial Study - Dora Al Aared
           </h2>
           <p className="text-sm leading-relaxed max-w-5xl" style={{ color: "#c0c0d8" }}>
             {t.financial.executiveSummary}
@@ -415,7 +417,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                           color: scenario === option.key ? "#0f172a" : "#86efac",
                         }}
                       >
-                        {t.financial.recommendedScenario}
+                        {t.financial.expectedScenario}
                       </span>
                     )}
                   </button>
@@ -452,30 +454,30 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                       className="rounded-full px-2 py-0.5 transition-all duration-200"
                       style={{
                         color:
-                          option === recommendedOccupancy
+                          option === expectedOccupancy
                             ? occupancy === option
                               ? "#dcfce7"
                               : "#86efac"
                             : "#8b8ba7",
                         backgroundColor:
-                          option === recommendedOccupancy
+                          option === expectedOccupancy
                             ? occupancy === option
                               ? "rgba(34, 197, 94, 0.2)"
                               : "rgba(34, 197, 94, 0.1)"
                             : "transparent",
                         border:
-                          option === recommendedOccupancy
+                          option === expectedOccupancy
                             ? `1px solid ${occupancy === option ? "rgba(134, 239, 172, 0.7)" : "rgba(74, 222, 128, 0.3)"}`
                             : "1px solid transparent",
                         boxShadow:
-                          option === recommendedOccupancy && occupancy === option
+                          option === expectedOccupancy && occupancy === option
                             ? "0 6px 18px rgba(34, 197, 94, 0.12)"
                             : "none",
                       }}
                     >
                       {formatPercent(option)}%
                     </span>
-                    {option === recommendedOccupancy && (
+                    {option === expectedOccupancy && (
                       <span
                         className="inline-flex rounded-full px-1.5 py-0.5 text-[9px] font-semibold leading-none"
                         style={{
@@ -483,7 +485,7 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                           color: occupancy === option ? "#dcfce7" : "#86efac",
                         }}
                       >
-                        {t.financial.recommendedShort}
+                        {t.financial.expectedShort}
                       </span>
                     )}
                   </div>
@@ -522,6 +524,12 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
             t={t}
           />
         )}
+
+        <OpportunitiesChallenges
+          selectedModel={selectedVariant}
+          modelLabel={modelLabel}
+          t={t}
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
           <div className="lg:col-span-3 space-y-4">

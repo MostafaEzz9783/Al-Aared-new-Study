@@ -2,18 +2,18 @@ export const MARKET_VALIDATION_URL =
   "https://docs.google.com/spreadsheets/d/1I0EJyab-oYUgogk9jY1hBhgDHFOHA2_HoCZXTv_2Yvw/edit?gid=421968515#gid=421968515";
 
 export const projectData = {
-  mapUrl: "https://maps.app.goo.gl/LW8zg1pMaMkTQQvt5?g_st=ic",
+  mapUrl: "https://maps.app.goo.gl/kyVfT9V5i9AqjqFZ6?g_st=ic",
   executiveUnits: 6,
   executiveUnitType: "Executive Housing Units",
   coLivingUnits: 11,
   operatorFeeRate: 0.2,
   location: {
-    ar: "العارض",
-    en: "Al Aared",
+    ar: "دورا العارض",
+    en: "Dora Al Aared",
   },
   locationSubtext: {
-    ar: "الرياض، المملكة العربية السعودية",
-    en: "Riyadh, Saudi Arabia",
+    ar: "العارض، الرياض، المملكة العربية السعودية",
+    en: "Al Aared, Riyadh, Saudi Arabia",
   },
   modelValue: {
     ar: "Co-Living / Executive Housing",
@@ -25,26 +25,26 @@ export const projectData = {
   },
   overviewDescription: {
     ar:
-      "تقوم الدراسة على تحويل فيلا قائمة في العارض إلى وحدات قابلة للتأجير. تقارن Mathwa بين نموذج السكن المشترك ونموذج الإسكان التنفيذي وفق تقسيم الوحدات، افتراضات الإيجار، حساسية الإشغال، وصافي الإيراد بعد رسوم المشغل.",
+      "تقع دورا العارض في نطاق العارض شمال الرياض، ويتم تقييم تحويل الفيلا القائمة إلى وحدات قابلة للتأجير. يعتمد السياق التشغيلي على قرب العقار من جامعة اليمامة بحوالي 7 كم، وقربه النسبي من مدينة الأمير سلطان للخدمات الإنسانية والمدينة العسكرية ومناطق العمل، مع اختبار ملاءمة نموذج السكن المشترك ونموذج السكن التنفيذي.",
     en:
-      "This study is based on converting an existing villa in Al Aared into multiple rentable units. Mathwa compares a Co-Living model and an Executive Housing model based on unit segmentation, rent assumptions, occupancy scenarios, and net revenue after operator fees.",
+      "Dora Al Aared is positioned in Al Aared, north Riyadh, where the existing villa is being evaluated for conversion into rentable units. The operating context considers proximity to Al Yamamah University at approximately 7 km, relative access to Prince Sultan Humanitarian City, the military city, and employment areas, while testing Co-Living and Executive Housing suitability.",
   },
   features: {
     ar: [
-      "الأصل العقاري فيلا قائمة يتم تقييم تحويلها إلى وحدات قابلة للتأجير.",
-      "نموذج السكن المشترك: 10 وحدات ماستر + 1 استوديو، بإجمالي 11 وحدة.",
-      "نموذج الإسكان التنفيذي: 1 استوديو + 5 وحدات غرفتين، بإجمالي 6 وحدات.",
-      "تحليل الحساسية يغطي أسوأ حالة، الحالة الأساسية، وأفضل حالة عند إشغال من 50% إلى 90%.",
-      "رسوم المشغل ثابتة عند 20% من الإيراد السنوي.",
-      "الهدف تحديد النموذج الأكثر جاذبية ماليا والأكثر ملاءمة تشغيليا للأصل.",
+      "الأصل العقاري فيلا قائمة في دورا العارض يتم تقييم تحويلها إلى وحدات قابلة للتأجير.",
+      "الموقع يبعد عن جامعة اليمامة بحوالي 7 كم، ما يدعم اختبار استهداف الطلاب والموظفين الشباب ضمن نموذج السكن المشترك.",
+      "نموذج السكن المشترك: 10 وحدات ماستر + 1 استوديو، بإجمالي 11 وحدة وتنويع أعلى في شرائح التأجير.",
+      "نموذج السكن التنفيذي: 1 استوديو + 5 وحدات غرفتين، بإجمالي 6 وحدات مع Best Case أعلى ماديا.",
+      "السكن التنفيذي يستفيد من قرب المشروع من مدينة الأمير سلطان للخدمات الإنسانية والمدينة العسكرية ومناطق العمل.",
+      "رسوم المشغل ثابتة عند 20% من الإيراد السنوي، ونسبة الإشغال المتوقعة في العرض الأساسي 60%.",
     ],
     en: [
-      "The asset is an existing villa being evaluated for conversion into rentable units.",
-      "Co-Living model: 10 master units + 1 studio, for a total of 11 units.",
-      "Executive Housing model: 1 studio + 5 two-bedroom units, for a total of 6 units.",
-      "Sensitivity covers Worst Case, Base Case, and Best Case scenarios from 50% to 90% occupancy.",
-      "Operator fee is fixed at 20% of annual revenue.",
-      "The objective is to identify the most financially attractive and operationally suitable model for the asset.",
+      "The asset is an existing villa at Dora Al Aared being evaluated for conversion into rentable units.",
+      "The location is approximately 7 km from Al Yamamah University, supporting a test of student and young-professional demand under Co-Living.",
+      "Co-Living model: 10 master units + 1 studio, for a total of 11 units and broader rental segmentation.",
+      "Executive Housing model: 1 studio + 5 two-bedroom units, for a total of 6 units with materially stronger Best Case upside.",
+      "Executive Housing benefits from proximity to Prince Sultan Humanitarian City, the military city, and employment areas.",
+      "Operator fee is fixed at 20% of annual revenue, with 60% used as the expected occupancy rate in the default view.",
     ],
   },
   inventoryHighlights: [
@@ -62,7 +62,7 @@ export const projectData = {
     {
       count: 6,
       label: {
-        ar: "وحدات الإسكان التنفيذي",
+        ar: "وحدات السكن التنفيذي",
         en: "Executive Housing Units",
       },
       note: {
@@ -123,7 +123,7 @@ export const projectData = {
       },
       count: 1,
       use: {
-        ar: "وحدة استوديو ضمن نموذج الإسكان التنفيذي",
+        ar: "وحدة استوديو ضمن نموذج السكن التنفيذي",
         en: "Studio unit under the Executive Housing model",
       },
     },
@@ -134,7 +134,7 @@ export const projectData = {
       },
       count: 5,
       use: {
-        ar: "وحدات غرفتين ضمن نموذج الإسكان التنفيذي",
+        ar: "وحدات غرفتين ضمن نموذج السكن التنفيذي",
         en: "Two-bedroom units under the Executive Housing model",
       },
     },

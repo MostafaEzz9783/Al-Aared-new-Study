@@ -9,8 +9,8 @@ const coLivingVariant = {
     en: "Co-Living Model",
   },
   title: {
-    ar: "Financial Study - Al Aared Co-Living Model",
-    en: "Financial Study - Al Aared Co-Living Model",
+    ar: "Financial Study - Dora Al Aared Co-Living Model",
+    en: "Financial Study - Dora Al Aared Co-Living Model",
   },
   description: {
     ar: "تحويل الفيلا إلى 10 وحدات ماستر ووحدة استوديو واحدة، بما يرفع عدد الوحدات ويزيد تنوع شرائح التأجير.",
@@ -23,7 +23,7 @@ const coLivingVariant = {
       "The Co-Living model converts the existing villa into 11 rentable units: 10 master units and 1 studio, tested across 50% to 90% occupancy with a fixed 20% operator fee.",
   },
   operatorFeeRate: OPERATOR_FEE_RATE,
-  recommendedOccupancy: 80,
+  expectedOccupancy: 60,
   unitCount,
   inventoryCount: unitCount,
   inventoryDescription: {
@@ -51,6 +51,36 @@ const coLivingVariant = {
       "Operationally suited to shared living",
       "Income risk spread across more tenants",
     ],
+  },
+  opportunitiesChallenges: {
+    opportunities: {
+      ar: [
+        "قرب العقار من جامعة اليمامة",
+        "يبعد عن جامعة اليمامة بحوالي 7 كم",
+        "إمكانية استهداف الطلاب والموظفين الشباب",
+        "إمكانية تطوير نموذج سكن مشترك اقتصادي",
+      ],
+      en: [
+        "The asset is near Al Yamamah University",
+        "Approximately 7 km from Al Yamamah University",
+        "Potential to target students and young professionals",
+        "Potential to develop an economical shared-living model",
+      ],
+    },
+    challenges: {
+      ar: [
+        "بعد العقار عن أغلب الجامعات",
+        "بعده عن المناطق التي تخدم نموذج السكن المشترك بشكل مباشر",
+        "محدودية الطلب المباشر على الـ Co-Living في المنطقة الحالية",
+        "الحاجة إلى تسويق وتشغيل أقوى لجذب الفئة المستهدفة",
+      ],
+      en: [
+        "The asset is distant from most universities",
+        "The location is away from areas that directly support a Co-Living model",
+        "Direct Co-Living demand in the current area is limited",
+        "Stronger marketing and operations are required to attract the target segment",
+      ],
+    },
   },
   pricingFactors: {
     ar: ["تقسيم الوحدات", "نوع الوحدة", "سيناريو السعر", "مستوى الإشغال"],

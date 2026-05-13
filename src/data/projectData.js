@@ -77,7 +77,7 @@ export const projectData = {
         en: "Financial Scenarios",
       },
       note: {
-        ar: "أسوأ حالة، أساسي، وأفضل حالة",
+        ar: "السيناريو المتشائم، السيناريو الطبيعي، والسيناريو الأفضل",
         en: "Worst Case, Base Case, and Best Case",
       },
     },

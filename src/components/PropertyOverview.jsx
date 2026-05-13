@@ -128,7 +128,11 @@ export default function PropertyOverview({ t, language }) {
             </thead>
             <tbody>
               {inventoryTable.map((row) => (
-                <tr key={row.type} className="border-t" style={{ borderColor: "#e5e7eb" }}>
+                <tr
+                  key={row.type}
+                  className="border-t transition-colors duration-200 hover:bg-blue-50/70"
+                  style={{ borderColor: "#e5e7eb" }}
+                >
                   <td className="px-4 py-3" style={{ color: "#111827" }}>
                     {row.type}
                   </td>

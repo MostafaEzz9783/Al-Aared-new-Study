@@ -145,7 +145,7 @@ export const projectData = {
         ar: "Co-Living - Worst Case 100%",
         en: "Co-Living - Worst Case 100%",
       },
-      value: 431496,
+      value: 377496,
       note: {
         ar: "الإيراد السنوي عند إشغال 100%",
         en: "Annual revenue at 100% occupancy",
@@ -156,7 +156,7 @@ export const projectData = {
         ar: "Co-Living - Base Case 100%",
         en: "Co-Living - Base Case 100%",
       },
-      value: 475085,
+      value: 406685,
       note: {
         ar: "الإيراد السنوي عند إشغال 100%",
         en: "Annual revenue at 100% occupancy",

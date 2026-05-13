@@ -35,11 +35,14 @@ export default function FinancialDistribution({ kpis, formatSAR, occupancy, t })
 
       <div className="space-y-3 mb-5">
         {rows.map((row) => (
-          <div key={row.label} className="flex items-center justify-between">
+          <div
+            key={row.label}
+            className="flex items-center justify-between gap-4 rounded-lg px-2 py-1.5 transition-colors duration-200 hover:bg-white/5"
+          >
             <span className="text-xs" style={{ color: "#8b8ba7" }}>
               {row.label}
             </span>
-            <span className="text-xs font-bold" style={{ color: row.color }}>
+            <span className="text-xs font-bold whitespace-nowrap" style={{ color: row.color }}>
               SAR {row.value}
             </span>
           </div>

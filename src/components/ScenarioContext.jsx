@@ -1,6 +1,6 @@
 const CONTEXT_COLORS = {
   worst: "#f87171",
-  base: "#60a5fa",
+  base: "#fbbf24",
   best: "#34d399",
 };
 
@@ -73,7 +73,10 @@ export default function ScenarioContext({ selectedModel, scenario, scenarioLabel
             {t.financial.scenarioPricing}
           </p>
           {pricing.map((item) => (
-            <div key={`${item.label[language]}-${item.units}`} className="flex items-start gap-2">
+            <div
+              key={`${item.label[language]}-${item.units}`}
+              className="flex items-start gap-2 rounded-xl px-3 py-2 transition-colors duration-200 hover:bg-white/5"
+            >
               <span className="text-xs font-bold mt-0.5" style={{ color }}>
                 *
               </span>

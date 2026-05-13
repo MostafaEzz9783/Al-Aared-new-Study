@@ -137,8 +137,8 @@ function SmallKPI({ icon: Icon, label, value, formatSAR, color, bg, unit, animat
         <p className="text-xs mb-2 leading-snug" style={{ color: "#8b8ba7" }}>
           {label}
         </p>
-        <p className="text-xl font-black" style={{ color, direction: "ltr", textAlign: "right" }}>
-          <AnimatedCounter value={value} format={formatSAR} animateFromZero={animateCountersFromZero} />
+        <p className="text-lg xl:text-xl font-black" style={{ color, direction: "ltr", textAlign: "right" }}>
+          <AnimatedCounter value={value} format={formatSAR} prefix="SAR " animateFromZero={animateCountersFromZero} />
         </p>
       </div>
       <div className="px-6 py-4 border-t" style={{ borderColor: "#2e2e3e" }}>

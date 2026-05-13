@@ -32,7 +32,7 @@ const actionButtonMotion = {
 
 const SCENARIO_OPTIONS = [
   { key: "worst", color: "#f87171" },
-  { key: "base", color: "#60a5fa" },
+  { key: "base", color: "#fbbf24" },
   { key: "best", color: "#34d399" },
 ];
 
@@ -384,27 +384,35 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                     style={{
                       backgroundColor:
                         scenario === option.key
-                          ? option.key === RECOMMENDED_SCENARIO_KEY
-                            ? "#34d399"
-                            : "#60a5fa"
-                          : option.key === RECOMMENDED_SCENARIO_KEY
+                          ? option.color
+                          : option.key === "best"
                             ? "rgba(52, 211, 153, 0.1)"
-                            : "transparent",
+                            : option.key === RECOMMENDED_SCENARIO_KEY
+                              ? "rgba(251, 191, 36, 0.1)"
+                              : "transparent",
                       color:
                         scenario === option.key
                           ? "#0f0f1a"
-                          : option.key === RECOMMENDED_SCENARIO_KEY
+                          : option.key === "best"
                             ? "#bbf7d0"
-                            : "#8b8ba7",
+                            : option.key === RECOMMENDED_SCENARIO_KEY
+                              ? "#fde68a"
+                              : "#8b8ba7",
                       border:
-                        option.key === RECOMMENDED_SCENARIO_KEY
+                        option.key === "best"
                           ? `1px solid ${scenario === option.key ? "rgba(134, 239, 172, 0.9)" : "rgba(74, 222, 128, 0.35)"}`
+                          : option.key === RECOMMENDED_SCENARIO_KEY
+                            ? `1px solid ${scenario === option.key ? "rgba(253, 224, 71, 0.9)" : "rgba(251, 191, 36, 0.35)"}`
                           : "1px solid transparent",
                       boxShadow:
-                        option.key === RECOMMENDED_SCENARIO_KEY
+                        option.key === "best"
                           ? scenario === option.key
                             ? "0 0 0 1px rgba(74, 222, 128, 0.16), 0 10px 24px rgba(34, 197, 94, 0.16)"
                             : "0 0 0 1px rgba(74, 222, 128, 0.08)"
+                          : option.key === RECOMMENDED_SCENARIO_KEY
+                            ? scenario === option.key
+                              ? "0 0 0 1px rgba(251, 191, 36, 0.16), 0 10px 24px rgba(245, 158, 11, 0.16)"
+                              : "0 0 0 1px rgba(251, 191, 36, 0.08)"
                           : "none",
                     }}
                   >
@@ -413,11 +421,22 @@ const FinancialStudy = forwardRef(function FinancialStudy({ t }, forwardedRef) {
                       <span
                         className="mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold"
                         style={{
+                          backgroundColor: scenario === option.key ? "rgba(15, 23, 42, 0.16)" : "rgba(251, 191, 36, 0.16)",
+                          color: scenario === option.key ? "#0f172a" : "#fde68a",
+                        }}
+                      >
+                        {t.financial.expectedScenario}
+                      </span>
+                    )}
+                    {option.key === "best" && (
+                      <span
+                        className="mt-1 inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold"
+                        style={{
                           backgroundColor: scenario === option.key ? "rgba(15, 23, 42, 0.16)" : "rgba(34, 197, 94, 0.16)",
                           color: scenario === option.key ? "#0f172a" : "#86efac",
                         }}
                       >
-                        {t.financial.expectedScenario}
+                        {t.financial.bestUpside}
                       </span>
                     )}
                   </button>
